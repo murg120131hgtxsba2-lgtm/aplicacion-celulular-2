@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conecta Contigo: aprende a usar el celular de forma equilibrada.">
+  <title>Conecta Contigo | Uso consciente del celular</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="authView" class="auth-wrap">
+    <section class="auth-card">
+      <div class="brand-mark">↗</div>
+      <p class="eyebrow">BIENESTAR DIGITAL</p>
+      <h1>Conecta<br><span>Contigo.</span></h1>
+      <p class="muted">Tu celular es una herramienta. Tú decides cómo usarlo.</p>
+      <div class="tabs">
+        <button type="button" class="tab active" data-tab="login">Iniciar sesión</button>
+        <button type="button" class="tab" data-tab="register">Crear cuenta</button>
+      </div>
+      <form id="loginForm" class="auth-form">
+        <label>Correo electrónico<input id="loginEmail" type="email" required placeholder="tucorreo@ejemplo.com"></label>
+        <label>Contraseña<input id="loginPassword" type="password" required minlength="6" placeholder="Mínimo 6 caracteres"></label>
+        <button class="primary full" type="submit">Entrar a mi espacio <span>→</span></button>
+      </form>
+      <form id="registerForm" class="auth-form hidden">
+        <label>¿Cómo te llamas?<input id="registerName" required maxlength="40" placeholder="Tu nombre"></label>
+        <label>Correo electrónico<input id="registerEmail" type="email" required placeholder="tucorreo@ejemplo.com"></label>
+        <label>Crea una contraseña<input id="registerPassword" type="password" required minlength="6" placeholder="Mínimo 6 caracteres"></label>
+        <button class="primary full" type="submit">Crear mi cuenta <span>→</span></button>
+      </form>
+      <p class="tiny">Esta versión guarda tu cuenta y tus registros en este navegador. No compartas tu contraseña.</p>
+    </section>
+    <aside class="auth-art">
+      <div class="art-orbit"></div><div class="phone">●<div class="phone-screen">PAUSA<br><b>VIVE<br>EL<br>MOMENTO</b></div></div>
+      <p>Menos automático.<br><strong>Más intencional.</strong></p>
+    </aside>
+  </main>
+
+  <div id="appView" class="app hidden">
+    <aside class="sidebar">
+      <a class="logo" href="#">conecta<span>.</span></a>
+      <p class="side-label">TU ESPACIO</p>
+      <button class="nav active" data-page="inicio">⌂ <span>Inicio</span></button>
+      <button class="nav" data-page="registro">◷ <span>Mi registro</span></button>
+      <button class="nav" data-page="retos">✦ <span>Retos</span></button>
+      <button class="nav" data-page="aprende">♡ <span>Conciencia digital</span></button>
+      <div class="sidebar-bottom">
+        <div class="mini-user"><div class="avatar" id="avatarInitial">U</div><div><b id="sideName">Usuario</b><small>Mi cuenta</small></div></div>
+        <button id="logoutBtn" class="logout">↪ Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div><p class="eyebrow">TU BIENESTAR, A TU RITMO</p><h2 id="pageHeading">Buenos días</h2></div>
+        <div class="date-chip" id="todayLabel"></div>
+      </header>
+
+      <section class="page" id="page-inicio">
+        <div class="welcome-panel">
+          <div><span class="pill">UN DÍA A LA VEZ</span><h1>Haz espacio para<br>lo que <em>importa.</em></h1>
+          <p>Observa tus hábitos sin juzgarte. Pequeños cambios pueden ayudarte a encontrar un mejor equilibrio.</p>
+          <button class="light-btn" data-go="registro">Registrar mi tiempo <span>→</span></button></div>
+          <div class="hero-graphic"><div class="sun"></div><div class="hero-phone"><div class="phone-dot"></div><div class="hero-lines"></div></div><div class="bubble">PAUSA<br>UN MOMENTO</div></div>
+        </div>
+        <div class="section-heading"><div><p class="eyebrow">TUS DATOS</p><h3>Tu día en perspectiva</h3></div><span class="muted small">Registro manual</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><span class="stat-icon">◷</span><p>Tiempo registrado hoy</p><strong id="todayTime">0 h 0 min</strong><small>En el celular</small></article>
+          <article class="stat-card"><span class="stat-icon">◎</span><p>Meta diaria</p><strong id="goalDisplay">2 h 00 min</strong><small id="goalStatus">Define un objetivo realista</small></article>
+          <article class="stat-card"><span class="stat-icon">✦</span><p>Retos completados</p><strong id="challengeCount">0</strong><small>Pequeños pasos cuentan</small></article>
+        </div>
+        <div class="two-col">
+          <article class="white-card"><div class="section-heading"><div><p class="eyebrow">REFLEXIÓN</p><h3>¿Cómo te sentiste hoy?</h3></div><span>♡</span></div><p class="muted">Tu experiencia importa más que cualquier número.</p><div class="moods" id="moods"><button data-mood="Concentrado">🙂<small>Concentrado</small></button><button data-mood="Tranquilo">😌<small>Tranquilo</small></button><button data-mood="Distraído">😵‍💫<small>Distraído</small></button><button data-mood="Cansado">😴<small>Cansado</small></button></div><p id="moodSaved" class="success-note"></p></article>
+          <article class="quote-card"><span class="quote-mark">“</span><h3>La tecnología debe acercarte a tu vida, no alejarte de ella.</h3><p>Hoy puedes elegir estar presente.</p></article>
+        </div>
+      </section>
+
+      <section class="page hidden" id="page-registro">
+        <div class="page-intro"><p class="eyebrow">CONOCE TUS HÁBITOS</p><h1>Mi registro</h1><p>Agrega el tiempo que utilizaste tu celular. Puedes consultar el resumen de tus registros.</p></div>
+        <div class="record-layout">
+          <form id="recordForm" class="white-card record-form">
+            <h3>Nuevo registro</h3>
+            <label>¿Cuánto tiempo lo usaste?<div class="input-row"><input id="hours" type="number" min="0" max="24" value="0" required><span>horas</span><input id="minutes" type="number" min="0" max="59" value="30" required><span>min</span></div></label>
+            <label>¿Para qué lo utilizaste?<select id="category"><option>Estudio</option><option>Comunicación</option><option>Entretenimiento</option><option>Redes sociales</option><option>Otro</option></select></label>
+            <label>Fecha<input id="recordDate" type="date" required></label>
+            <label>Nota (opcional)<textarea id="recordNote" rows="3" maxlength="160" placeholder="¿Qué hiciste o cómo te sentiste?"></textarea></label>
+            <button class="primary full" type="submit">Guardar registro <span>＋</span></button>
+          </form>
+          <div class="white-card history-card"><div class="section-heading"><h3>Historial</h3><span class="pill">Tus registros</span></div><div id="recordList" class="record-list"><p class="muted">Todavía no tienes registros.</p></div></div>
+        </div>
+        <div class="white-card goal-card"><div><p class="eyebrow">OBJETIVO PERSONAL</p><h3>Establece una meta diaria</h3><p class="muted">Elige una meta que se adapte a tus actividades y necesidades.</p></div><div class="goal-control"><input id="goalHours" type="number" min="1" max="24" value="2"><span>horas al día</span><button id="saveGoal" class="secondary">Guardar meta</button></div></div>
+        <p class="disclaimer">Recuerda: el registro es manual y no mide automáticamente el uso de otras aplicaciones. Puedes consultar el tiempo real en las herramientas de bienestar digital de tu dispositivo.</p>
+      </section>
+
+      <section class="page hidden" id="page-retos">
+        <div class="page-intro"><p class="eyebrow">PRUEBA ALGO NUEVO</p><h1>Retos conscientes</h1><p>No se trata de dejar el celular, sino de elegir cuándo usarlo.</p></div>
+        <div class="challenge-grid" id="challengeGrid"></div>
+      </section>
+
+      <section class="page hidden" id="page-aprende">
+        <div class="page-intro"><p class="eyebrow">INFORMACIÓN PARA DECIDIR</p><h1>Conciencia digital</h1><p>Usar el celular con equilibrio también es cuidar tu atención, descanso y relaciones.</p></div>
+        <div class="learn-grid">
+          <article class="learn-card lavender"><span>01 / ATENCIÓN</span><h3>Haz pausas intencionales</h3><p>Las notificaciones y el cambio constante entre aplicaciones pueden interrumpir tus actividades. Prueba silenciar avisos cuando necesites concentrarte.</p></article>
+          <article class="learn-card peach"><span>02 / DESCANSO</span><h3>Prepara tu momento de dormir</h3><p>Procura crear una rutina tranquila antes de acostarte y deja el celular fuera de tu alcance si eso te ayuda a descansar.</p></article>
+          <article class="learn-card mint"><span>03 / RELACIONES</span><h3>Conecta con quien está cerca</h3><p>Durante una comida o conversación, acuerda momentos sin pantalla para escuchar y convivir.</p></article>
+          <article class="learn-card blue"><span>04 / AUTOCONOCIMIENTO</span><h3>Pregúntate para qué lo tomas</h3><p>Antes de desbloquearlo, piensa: ¿tengo un propósito o lo hago por costumbre? Esa pausa te permite elegir.</p></article>
+        </div>
+        <div class="white-card signs"><h3>Señales para revisar tus hábitos</h3><ul><li>Te cuesta dejar el celular mientras haces tareas.</li><li>Dejas de hacer actividades que disfrutas por seguir conectado.</li><li>Revisas notificaciones incluso cuando no las necesitas.</li><li>El uso del celular interfiere con tu descanso o convivencia.</li></ul><p class="muted">Si esto te preocupa o afecta tu vida diaria, conversa con una persona adulta de confianza o un profesional. No tienes que resolverlo a solas.</p></div>
+      </section>
+      <footer>Conecta Contigo · Tu bienestar también importa <span>Hecho para crear hábitos digitales saludables.</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
